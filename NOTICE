@@ -1,0 +1,20 @@
+TinkrkniT Controller firmware
+Copyright (c) 2026 Dekoboko Studio. Released under the MIT License (LICENSE).
+
+The TinkrkniT name and logo are not covered by the MIT License. You may use
+the code under its terms, but please give a modified version its own name so
+it is not mistaken for TinkrkniT Controller.
+
+This firmware is based on the following work.
+
+silver-reed-write
+  https://github.com/knitscape/silver-reed-write
+  The controller design and its serial protocol come from the Seeed XIAO
+  RP2040 sketch in silver-reed-write by knitscape, ported here to the ESP32
+  with the author's permission to release it under the MIT License.
+
+The sketch uses the Adafruit GFX and Adafruit SSD1306 libraries (BSD
+license), which are installed separately and not included here.
+
+Silver Reed and Knitmaster are trademarks of their owners, who do not make,
+support or endorse this firmware.
