@@ -57,6 +57,10 @@ const byte MSG_HELLO = 0x10;             // [MSG, version]
 // 1: change signal on the LEDs. 2: feeders are yarn letters (0 = A), shown on the OLED.
 const byte FIRMWARE_VERSION = 2;
 
+// Release number: tools/release.py tags the public repo "v" + this. Starts with
+// FIRMWARE_VERSION; bump the part after the dot for releases that leave the protocol alone.
+const char RELEASE_VERSION[] = "2.1";
+
 // CMD_PASS_INFO payload. Length-prefixed so the host can append fields later (a color
 // changer) without breaking this sketch: it keeps the bytes it knows and skips the rest.
 //   0  flags     PASS_YARN_CHANGE | PASS_CAM_CHANGE | PASS_DONE
