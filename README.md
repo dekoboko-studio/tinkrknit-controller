@@ -1,4 +1,4 @@
-# TinkrkniT Controller
+ # TinkrkniT Controller
 
 Firmware for a USB controller that lets [TinkrkniT](https://tinkrknit.com)
 knit patterns on a Silver Reed or Knitmaster electronic flatbed knitting

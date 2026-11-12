@@ -55,11 +55,12 @@ const byte MSG_HELLO = 0x10;             // [MSG, version]
 // CMD_PASS_INFO only after MSG_HELLO has reported a version, because older firmware reads
 // unknown bytes as commands.
 // 1: change signal on the LEDs. 2: feeders are yarn letters (0 = A), shown on the OLED.
-const byte FIRMWARE_VERSION = 2;
+// 3: rows up to 255 needles (was 200), for the SK830's 250-needle bed.
+const byte FIRMWARE_VERSION = 3;
 
 // Release number: tools/release.py tags the public repo "v" + this. Starts with
 // FIRMWARE_VERSION; bump the part after the dot for releases that leave the protocol alone.
-const char RELEASE_VERSION[] = "2.1";
+const char RELEASE_VERSION[] = "3.0";
 
 // CMD_PASS_INFO payload. Length-prefixed so the host can append fields later (a color
 // changer) without breaking this sketch: it keeps the bytes it knows and skips the rest.
@@ -81,9 +82,10 @@ const byte DIR_LEFT = 0x01;
 const byte STRING_INFO = 0x00;
 const byte STRING_ERROR = 0x01;
 
-// Pattern storage (packed: 8 needles per byte)
-const int MAX_NEEDLE_COUNT = 200;
-const int MAX_PACKED_BYTES = 25;
+// Pattern storage (packed: 8 needles per byte). CMD_SET_ROW's length is one byte, so 255
+// is the protocol's limit; it covers every Silver Reed bed (the SK830 has 250).
+const int MAX_NEEDLE_COUNT = 255;
+const int MAX_PACKED_BYTES = (MAX_NEEDLE_COUNT + 7) / 8;
 byte pattern[MAX_PACKED_BYTES];
 int patternLength = 0;
 bool patternReady = false;
